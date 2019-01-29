@@ -1,0 +1,16 @@
+/SAbstractAttenuatedLight.class
+/SAbstractInterferenceLight.class
+/SAbstractLight.class
+/SAbstractPlanarApertureLight.class
+/SAmbientLight.class
+/SApertureMaskLight.class
+/SAttenuatedLight.class
+/SDirectionalLight.class
+/SEllipticalApertureLight.class
+/SInterferenceLight.class
+/SLight.class
+/SLinearApertureLight.class
+/SPointLight.class
+/SPointSpotLight.class
+/SRectangularApertureLight.class
+/SShadowRay.class

@@ -1,0 +1,15 @@
+/SAbstractGeometrySpace.class
+/SAbstractVoxelSpace.class
+/SBoundingBox.class
+/SBoundingBoxBuilder.class
+/SFastTraversalVoxelAlgorithm.class
+/SGeometryCollectionSplitter.class
+/SGeometrySpace.class
+/SLinearSpace.class
+/SMultiVoxelSpace.class
+/SVoxel.class
+/SVoxelBuilder.class
+/SVoxelDimensionEvaluator.class
+/SVoxelSpace.class
+/SVoxelSpaceEntry.class
+/SVoxelSpacePriorityEntry.class

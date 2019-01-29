@@ -1,0 +1,108 @@
+camera
+position		[-5, 0.0, 2.0]
+look_at			[0.0, 0.0, 0.0]
+up				[0.0, 0.0, 1.0]
+angle				65.0 degrees
+near_clipping_plane	0.1
+far_clipping_plane	100.0
+end
+
+viewport
+width				500 pixels
+height				500 pixels
+image_file_name		intro_ambiant
+end
+
+raytracer
+task				1
+sampling			1
+recursive_level		1
+reflexion_algorithm	ambient
+pixel_coordinate	top_left
+space				linear
+color_normalization	clamp_channel
+end
+
+
+#---------
+#PRIMITIVE
+#---------
+
+primitive
+material_name	plan
+plan
+position	0.0	0.0	0.0
+normal		0.0	0.0	1.0
+end
+end
+
+primitive
+material_name	cube1
+cube
+position	0.0	0.0	0.0
+size			1.0
+end
+end
+
+primitive
+material_name	cube2
+cube
+position	0.0	2.0	2.0
+size		1.0
+end
+end
+
+primitive
+material_name	cube3
+cube
+position	0.0	-2.0	1.0
+size		1.0
+end
+end
+
+#--------
+#Matériel
+#--------
+
+material
+name	plan
+color	0.4	0.4	0.4
+ka	0.1
+kd	0.4
+ks	0.2
+end	
+
+material
+name	cube1
+color	blue
+ka	0.3
+kd	0.6
+p	1.0
+ks	0.7
+end
+
+material
+name	cube2
+color	green
+ka	0.3
+kd	0.6
+p	1.0
+ks	0.7
+end
+
+material
+name	cube3
+color	red
+ka	0.3
+kd	0.6
+p	1.0
+ks	0.7
+end
+
+#--------
+# Lumière
+#--------
+
+ambient_light
+color	1.0	1.0	1.0
+end
