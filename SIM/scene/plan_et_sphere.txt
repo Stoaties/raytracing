@@ -55,7 +55,7 @@ primitive
 material_name	sphere
 sphere
 position	0.0	0.0	2.0
-ray		1.0
+ray		1.5
 end
 end
 
