@@ -163,6 +163,13 @@ public class SSphereGeometry extends SAbstractGeometry {
 	@Override
 	public SRay intersection(SRay ray) throws SAlreadyIntersectedRayException
 	{
+		double[] inter = SGeometricIntersection.sphereIntersection(ray, position,  R);
+		for(int i = 0; i < inter.length; i++) {
+			if(inter[i]> SRay.getEpsilon()) {
+				return ray.intersection(this, evaluateIntersectionNormal(ray,inter[i]), inter[i]);
+			}
+		}
+		
 		return ray;
 	}
 

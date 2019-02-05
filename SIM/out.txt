@@ -14,14 +14,14 @@ end
 viewport
 width		500 pixels
 height		500 pixels
-image_file_name	intro_disque
+image_file_name	spheres
 end
 
 raytracer
 task			1
 sampling		1
 recursive_level		1
-reflexion_algorithm	no_light
+reflexion_algorithm	blinn
 pixel_coordinate	top_left
 space			linear
 color_normalization	clamp_channel
@@ -36,7 +36,7 @@ end
 */
 
 primitive
-material_name	plan
+material_name	plan_xy_z=0
 plane
 position	[0.0, 0.0, 0.0]
 normal		[0.0, 0.0, 1.0]
@@ -45,38 +45,55 @@ end
 end	#end primitive
 
 primitive
-material_name	disque
-disk
-position	[0.0, 0.0, 0.001]
-normal		[0.0, 0.0, 1.0]
+material_name	sphere_x=4_z=0
+sphere
+position	[3.0, 0.0, 1.0]
 ray		2.0
 end
 
 end	#end primitive
 
 primitive
-material_name	cube1
-cube
+material_name	sphere_x=-1_z=1_p=1
+sphere
+position	[-1.0, 2.0, 1.0]
+ray		1.0
+end
+
+end	#end primitive
+
+primitive
+material_name	sphere_x=-1_z=1_p=0
+sphere
+position	[-1.0, -2.0, 1.0]
+ray		1.0
+end
+
+end	#end primitive
+
+primitive
+material_name	sphere_x=0_z=0
+sphere
 position	[0.0, 0.0, 0.0]
-size		1.0
+ray		1.0
 end
 
 end	#end primitive
 
 primitive
-material_name	cube2
-cube
-position	[0.0, 2.0, 2.0]
-size		1.0
+material_name	sphere_x=1_z=2
+sphere
+position	[1.0, 1.0, 2.0]
+ray		1.0
 end
 
 end	#end primitive
 
 primitive
-material_name	cube3
-cube
-position	[0.0, -2.0, 1.0]
-size		1.0
+material_name	sphere_x=1_z=2
+sphere
+position	[1.0, -1.0, 2.0]
+ray		1.0
 end
 
 end	#end primitive
@@ -86,8 +103,8 @@ end	#end primitive
 */
 
 material
-name	plan
-color	[ 0.4, 0.4, 0.4, 1.0 ]
+name	plan_xy_z=0
+color	[ 0.8, 0.8, 0.6, 1.0 ]
 ka	0.1
 kd	0.4
 ks	0.2
@@ -99,11 +116,37 @@ shininess	20.0
 end	#end material
 
 material
-name	disque
-color	[ 0.9, 0.9, 0.1, 1.0 ]
-ka	0.1
+name	sphere_x=4_z=0
+color	[ 1.0, 0.1, 0.1, 1.0 ]
+ka	0.3
+kd	0.6
+ks	0.7
+p	1.0
+kr	0.0
+kt	0.0
+n	1.0
+shininess	20.0
+end	#end material
+
+material
+name	sphere_x=-1_z=1_p=1
+color	[ 0.2, 0.1, 1.0, 1.0 ]
+ka	0.2
 kd	0.4
-ks	0.2
+ks	0.9
+p	1.0
+kr	0.0
+kt	0.0
+n	1.0
+shininess	20.0
+end	#end material
+
+material
+name	sphere_x=-1_z=1_p=0
+color	[ 0.2, 0.1, 1.0, 1.0 ]
+ka	0.2
+kd	0.4
+ks	0.9
 p	0.0
 kr	0.0
 kt	0.0
@@ -112,8 +155,8 @@ shininess	20.0
 end	#end material
 
 material
-name	cube1
-color	[ 0.0, 0.0, 1.0, 1.0 ]
+name	sphere_x=0_z=0
+color	[ 1.0, 1.0, 1.0, 1.0 ]
 ka	0.3
 kd	0.6
 ks	0.7
@@ -125,21 +168,8 @@ shininess	20.0
 end	#end material
 
 material
-name	cube2
-color	[ 0.0, 1.0, 0.0, 1.0 ]
-ka	0.3
-kd	0.6
-ks	0.7
-p	1.0
-kr	0.0
-kt	0.0
-n	1.0
-shininess	20.0
-end	#end material
-
-material
-name	cube3
-color	[ 1.0, 0.0, 0.0, 1.0 ]
+name	sphere_x=1_z=2
+color	[ 0.2, 0.9, 0.1, 1.0 ]
 ka	0.3
 kd	0.6
 ks	0.7
@@ -153,4 +183,22 @@ end	#end material
 /*
    Sources de lumière de la scène
 */
+
+ambient_light
+color			[ 1.0, 1.0, 1.0, 1.0 ]
+end
+
+point_light
+color			[ 1.0, 1.0, 1.0, 1.0 ]
+position		[0.0, 0.0, 5.0]
+amplification	1.0
+constant_attenuator	1.0
+linear_attenuator	0.0
+quadratic_attenuator	0.02
+end
+
+directional_light
+color			[ 0.7, 0.7, 0.7, 1.0 ]
+orientation		[0.5773502691896258, 0.5773502691896258, -0.5773502691896258]
+end
 

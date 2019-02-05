@@ -47,7 +47,8 @@ public class SIllumination {
 	 */
 	public static SColor ambientReflexion(SColor La, SColor Sa)
 	{
-		throw new SNoImplementationException("La méthode n'est pas implémentée.");
+		return (La.multiply(Sa));
+		//throw new SNoImplementationException("La méthode n'est pas implémentée.");
 	}
 	
 	/**
@@ -64,7 +65,12 @@ public class SIllumination {
 	 */
 	public static SColor lambertianReflexion(SColor Ld, SColor Sd, SVector3d N, SVector3d d)
 	{
-	  throw new SNoImplementationException("La méthode n'est pas implémentée.");
+		if((N.dot(d.multiply(-1))) < 0) {
+			return NO_ILLUMINATION;
+		}
+		SColor temp = Ld.multiply((N.dot(d.multiply(-1)) )  ).multiply(Sd);
+		return temp;
+		//throw new SNoImplementationException("La méthode n'est pas implémentée.");
 	}
 	
 	/**
@@ -102,7 +108,12 @@ public class SIllumination {
 	 */
 	public static SColor blinnSpecularReflexion(SColor Ls, SColor Ss, SVector3d N, SVector3d v, SVector3d d, double n)
 	{
-	  throw new SNoImplementationException("La méthode n'est pas implémentée.");
+		SVector3d H = v.multiply(-1).add(d.multiply(-1)).multiply(1/(v.multiply(-1).add(d.multiply(-1)).modulus()))  ;
+		if(N.dot(H) < 0) {
+			return NO_ILLUMINATION;
+		}
+		return Ls.multiply(Math.pow(N.dot(H), n)).multiply(Ss);
+		//throw new SNoImplementationException("La méthode n'est pas implémentée.");
 	}
 	
 	/**
