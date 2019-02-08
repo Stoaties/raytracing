@@ -16,7 +16,7 @@ end
 raytracer
 task				1
 sampling			1
-recursive_level		5
+recursive_level		2
 reflexion_algorithm	BLINN
 pixel_coordinate	top_left
 space				linear
@@ -64,7 +64,7 @@ ka	0.05
 kd	0.05
 ks	0.2
 kt	0.95
-n	1.55
+n	2.80
 end	#end material
 
 primitive
