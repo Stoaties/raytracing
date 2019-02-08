@@ -81,7 +81,16 @@ public class SGeometricIntersection {
 	 *         solution contient 0, 1 ou 2 éléments.
 	 */
 	public static double[] infiniteTubeIntersection(SRay ray, SVector3d r_tube, SVector3d axis, double R) {
-		throw new SNoImplementationException("Erreur SGeometricIntersection : La méthode n'a pas été implémentée.");
+		
+		SVector3d va = axis.cross(ray.getDirection().cross(axis));
+		SVector3d rao = axis.cross(ray.getOrigin().substract(r_tube)).cross(axis);
+		double A = va.dot(va);
+		double B = rao.multiply(2).dot(va);
+		double C = rao.dot(rao) - R*R;
+		
+		double[] res = SMath.quadricRealRoot(A,B,C);
+		return res;
+		//throw new SNoImplementationException("Erreur SGeometricIntersection : La méthode n'a pas été implémentée.");
 	}
 
 	/**
