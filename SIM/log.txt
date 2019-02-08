@@ -1,18 +1,1 @@
-Message SJFrameRenderer : Lecture de la scène 'spheres.txt'.
-Message SScene : La scène comprend 7 primitives.
-Message SJFrameRenderer : Fin de la lecture de la scène.
-Message SJFrameRenderer : Durée : 1.073 s.
-
-Message SJFrameRenderer : Début du raytracing.
-Message SLinearSpace : Construction de l'espace linéaire des géométries.
-Message SLinearSpace : Fin de la construction de l'espace linéaire des géométries.
-
-Message SJFrameRenderer : Fin du raytracing.
-Message SJFrameRenderer : Durée : 1.224 s.
-Message SJFrameRenderer : Nombre de tests d'intersection réalisés : 4437286 tests.
-
-Message SJFrameRenderer : Écriture de l'image.
-Message SJFrameRenderer : Fin de l'écriture de l'image.
-Message SJFrameRenderer : Durée : 0.095 s.
-
-Message SJFrameRenderer : Fin de l'application.
+SGeometricalOpticsTest ---> Test non effectué : public void reflexionTest3()

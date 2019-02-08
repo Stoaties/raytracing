@@ -16,7 +16,7 @@ end
 raytracer
 task				1
 sampling			1
-recursive_level		2
+recursive_level		10
 reflexion_algorithm	blinn
 pixel_coordinate	top_left
 space				linear
