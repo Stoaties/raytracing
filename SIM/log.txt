@@ -1,22 +1,27 @@
-Message SJFrameRenderer : Lecture de la scène 'modele_agp.txt'.
-Message SModelReader : Lecture du modèle 'NOM_DU_FICHIER_A_PRECISER.agp'.
-Erreur SModelReader 003 : Le chargement du modèle 'NOM_DU_FICHIER_A_PRECISER.agp' est impossible. 
-	Erreur SModelAGPLoader 002 : Une erreur lors de la lecture est survenue ce qui empêche le chargement du modèle 3d. 
-Erreur SModelAGPParser 002 : Le fichier 'NOM_DU_FICHIER_A_PRECISER.agp' n'est pas trouvé.
-Message SScene : La scène comprend 4 primitives.
+Message SJFrameRenderer : Lecture de la scène 'teapot.txt'.
+Message SModelReader : Lecture du modèle 'teapot.obj'.
+Message SModelOBJParser : Lecture de la librairie de matériaux 'teapot.mtl'.
+Message SModelOBJLoader : Le modèle 'teapot.obj' possède : 6320 triangles, 0 carrés et 0 polygones.
+Message SModelReader : Le modèle teapot.obj sera chargé sans transformation.
+Message SScene : La scène comprend 6320 primitives.
 Message SJFrameRenderer : Fin de la lecture de la scène.
-Message SJFrameRenderer : Durée : 2.422 s.
+Message SJFrameRenderer : Durée : 3.451 s.
 
 Message SJFrameRenderer : Début du raytracing.
-Message SLinearSpace : Construction de l'espace linéaire des géométries.
-Message SLinearSpace : Fin de la construction de l'espace linéaire des géométries.
+Message SVoxelSpace : Construction de l'espace des géométries avec voxel.
+Message SVoxelSpace : Nombre de géométries dans la carte de voxels : 6320 géométries.
+Message SVoxelSpace : Taille des voxels : 0.12000293983725452 unités.
+Message SVoxelSpace : Nombre de référence à des géométries : 43713 références.
+Message SVoxelSpace : Nombre moyen de référence à des géométries par voxel : 5.908759124087592 références/voxel.
+
+Message SVoxelSpace : Fin de la construction de l'espace des géométries avec voxel.
 
 Message SJFrameRenderer : Fin du raytracing.
-Message SJFrameRenderer : Durée : 0.35 s.
-Message SJFrameRenderer : Nombre de tests d'intersection réalisés : 1030520 tests.
+Message SJFrameRenderer : Durée : 1.828 s.
+Message SJFrameRenderer : Nombre de tests d'intersection réalisés : 5037105 tests.
 
 Message SJFrameRenderer : Écriture de l'image.
 Message SJFrameRenderer : Fin de l'écriture de l'image.
-Message SJFrameRenderer : Durée : 0.093 s.
+Message SJFrameRenderer : Durée : 0.079 s.
 
 Message SJFrameRenderer : Fin de l'application.

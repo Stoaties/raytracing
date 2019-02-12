@@ -204,6 +204,28 @@ public class STriangleGeometry extends SAbstractGeometry {
 	@Override
 	public SRay intersection(SRay ray) throws SAlreadyIntersectedRayException
 	{
+		SVector3d s01 = P1.substract(P0);
+		SVector3d s12 = P2.substract(P1);
+		SVector3d s20 = P0.substract(P2);
+		
+		SVector3d u01 = normal.cross(s01).normalize();
+		SVector3d u20 = normal.cross(s20).normalize();
+		SVector3d u12 = normal.cross(s12).normalize();
+		
+		double[] temps = SGeometricIntersection.planeIntersection(ray, P0, normal);
+		
+		if(temps.length == 0 || temps[0] < SRay.getEpsilon()) {
+			return ray;
+		}
+		
+		if(ray.getPosition(temps[0]).substract(P0).dot(u01) > 0 ) {
+			if(ray.getPosition(temps[0]).substract(P1).dot(u12) > 0) {
+				if(ray.getPosition(temps[0]).substract(P2).dot(u20) > 0) {
+					return ray.intersection(this, evaluateIntersectionNormal(ray, temps[0]), temps[0]);
+				}
+			}
+		}
+		
 		return ray;
 	}
 
