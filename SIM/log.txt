@@ -1,1 +1,22 @@
-SGeometricalOpticsTest ---> Test non effectué : public void reflexionTest3()
+Message SJFrameRenderer : Lecture de la scène 'modele_agp.txt'.
+Message SModelReader : Lecture du modèle 'diamant.agp'.
+Erreur SModelReader 003 : Le chargement du modèle 'diamant.agp' est impossible. 
+	Erreur SModelAGPLoader 002 : Une erreur lors de la lecture est survenue ce qui empêche le chargement du modèle 3d. 
+Erreur SModelAGPParser 002 : Le fichier 'diamant.agp' n'est pas trouvé.
+Message SScene : La scène comprend 4 primitives.
+Message SJFrameRenderer : Fin de la lecture de la scène.
+Message SJFrameRenderer : Durée : 0.057 s.
+
+Message SJFrameRenderer : Début du raytracing.
+Message SLinearSpace : Construction de l'espace linéaire des géométries.
+Message SLinearSpace : Fin de la construction de l'espace linéaire des géométries.
+
+Message SJFrameRenderer : Fin du raytracing.
+Message SJFrameRenderer : Durée : 0.141 s.
+Message SJFrameRenderer : Nombre de tests d'intersection réalisés : 1001084 tests.
+
+Message SJFrameRenderer : Écriture de l'image.
+Message SJFrameRenderer : Fin de l'écriture de l'image.
+Message SJFrameRenderer : Durée : 0.054 s.
+
+Message SJFrameRenderer : Fin de l'application.

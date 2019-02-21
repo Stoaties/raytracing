@@ -3,10 +3,10 @@
 */
 
 camera
-position	[-5.0, 0.0, 2.0]
+position	[15.0, 15.0, 10.0]
 look_at		[0.0, 0.0, 0.0]
-up		[0.37139067635410367, 0.0, 0.9284766908852593]
-angle			65.0 degrees
+up		[-0.30151134457776363, -0.30151134457776363, 0.9045340337332909]
+angle			60.0 degrees
 near_clipping_plane	0.1
 far_clipping_plane	100.0
 end
@@ -14,13 +14,13 @@ end
 viewport
 width		500 pixels
 height		500 pixels
-image_file_name	spheres_reflexion
+image_file_name	diamant.agp
 end
 
 raytracer
 task			1
 sampling		1
-recursive_level		10
+recursive_level		1
 reflexion_algorithm	blinn
 pixel_coordinate	top_left
 space			linear
@@ -36,64 +36,40 @@ end
 */
 
 primitive
-material_name	plan_xy_z=0
-plane
-position	[0.0, 0.0, 0.0]
-normal		[0.0, 0.0, 1.0]
-end
-
-end	#end primitive
-
-primitive
-material_name	sphere_x=4_z=0
-sphere
-position	[3.0, 0.0, 1.0]
-ray		2.0
-end
-
-end	#end primitive
-
-primitive
-material_name	sphere_x=-1_z=1_p=1
-sphere
-position	[-1.0, 2.0, 1.0]
-ray		1.0
-end
-
-end	#end primitive
-
-primitive
-material_name	sphere_x=-1_z=1_p=0
-sphere
-position	[-1.0, -2.0, 1.0]
-ray		1.0
-end
-
-end	#end primitive
-
-primitive
-material_name	sphere_x=0_z=0
+material_name	origine
 sphere
 position	[0.0, 0.0, 0.0]
-ray		1.0
+ray		0.5
 end
 
 end	#end primitive
 
 primitive
-material_name	sphere_x=1_z=2
-sphere
-position	[1.0, 1.0, 2.0]
-ray		1.0
+material_name	cylindre_x
+tube
+position		[0.0, 0.0, 0.0]
+position		[10.0, 0.0, 0.0]
+ray		0.3
 end
 
 end	#end primitive
 
 primitive
-material_name	sphere_x=1_z=2
-sphere
-position	[1.0, -1.0, 2.0]
-ray		1.0
+material_name	cylindre_y
+tube
+position		[0.0, 0.0, 0.0]
+position		[0.0, 10.0, 0.0]
+ray		0.3
+end
+
+end	#end primitive
+
+primitive
+material_name	cylindre_z
+tube
+position		[0.0, 0.0, 0.0]
+position		[0.0, 0.0, 10.0]
+ray		0.3
 end
 
 end	#end primitive
@@ -103,78 +79,52 @@ end	#end primitive
 */
 
 material
-name	plan_xy_z=0
-color	[ 0.8, 0.8, 0.6, 1.0 ]
-ka	0.1
-kd	0.4
-ks	0.2
-p	0.0
-kr	0.8
-kt	0.0
-n	1.0
-shininess	20.0
-end	#end material
-
-material
-name	sphere_x=4_z=0
-color	[ 1.0, 0.1, 0.1, 1.0 ]
-ka	0.3
-kd	0.6
-ks	0.7
-p	1.0
-kr	0.4
-kt	0.0
-n	1.0
-shininess	20.0
-end	#end material
-
-material
-name	sphere_x=-1_z=1_p=1
-color	[ 0.2, 0.1, 1.0, 1.0 ]
-ka	0.2
-kd	0.4
-ks	0.9
-p	1.0
-kr	0.4
-kt	0.0
-n	1.0
-shininess	20.0
-end	#end material
-
-material
-name	sphere_x=-1_z=1_p=0
-color	[ 0.2, 0.1, 1.0, 1.0 ]
-ka	0.2
-kd	0.4
-ks	0.9
-p	0.0
-kr	0.4
-kt	0.0
-n	1.0
-shininess	20.0
-end	#end material
-
-material
-name	sphere_x=0_z=0
+name	origine
 color	[ 1.0, 1.0, 1.0, 1.0 ]
 ka	0.3
-kd	0.6
-ks	0.7
-p	1.0
-kr	0.4
+kd	0.5
+ks	0.4
+p	0.0
+kr	0.0
 kt	0.0
 n	1.0
 shininess	20.0
 end	#end material
 
 material
-name	sphere_x=1_z=2
-color	[ 0.2, 0.9, 0.1, 1.0 ]
+name	cylindre_x
+color	[ 0.8, 0.0, 0.0, 1.0 ]
 ka	0.3
-kd	0.6
-ks	0.7
-p	1.0
-kr	0.4
+kd	0.5
+ks	0.4
+p	0.0
+kr	0.0
+kt	0.0
+n	1.0
+shininess	20.0
+end	#end material
+
+material
+name	cylindre_y
+color	[ 0.0, 0.8, 0.0, 1.0 ]
+ka	0.3
+kd	0.5
+ks	0.4
+p	0.0
+kr	0.0
+kt	0.0
+n	1.0
+shininess	20.0
+end	#end material
+
+material
+name	cylindre_z
+color	[ 0.0, 0.0, 0.8, 1.0 ]
+ka	0.3
+kd	0.5
+ks	0.4
+p	0.0
+kr	0.0
 kt	0.0
 n	1.0
 shininess	20.0
@@ -188,17 +138,8 @@ ambient_light
 color			[ 1.0, 1.0, 1.0, 1.0 ]
 end
 
-point_light
-color			[ 1.0, 1.0, 1.0, 1.0 ]
-position		[0.0, 0.0, 5.0]
-amplification	1.0
-constant_attenuator	1.0
-linear_attenuator	0.0
-quadratic_attenuator	0.02
-end
-
 directional_light
-color			[ 0.7, 0.7, 0.7, 1.0 ]
-orientation		[0.5773502691896258, 0.5773502691896258, -0.5773502691896258]
+color			[ 1.0, 1.0, 0.0, 1.0 ]
+orientation		[-0.5773502691896258, -0.5773502691896258, -0.5773502691896258]
 end
 

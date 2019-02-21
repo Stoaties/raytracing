@@ -10,7 +10,7 @@ end
 viewport
 width			500 pixels
 height		500 pixels
-image_file_name	modele_agp
+image_file_name	diamant.agp
 end
 
 Raytracer
@@ -24,10 +24,10 @@ end
 
 # MODÈLE 3D À INTRODUIRE 
 
-model
-file			NOM_DU_FICHIER_A_PRECISER.agp
+model			diamant.agp
+file			diamant.agp
 scale			1.0	1.0	1.0
-translation	0.0	0.0	0.0
+translation		0.0	0.0	0.0
 rotation		0.0	0.0	0.0
 end
 
