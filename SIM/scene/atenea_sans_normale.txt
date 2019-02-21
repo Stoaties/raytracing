@@ -13,13 +13,13 @@ height				500 pixels
 image_file_name		atenea_sans_normale
 end
 
-raytracer
+raytracer		
 task				1
 sampling			1
 recursive_level		1
 reflexion_algorithm	blinn
 pixel_coordinate		top_left
-space				linear
+space				voxel
 color_normalization	clamp_channel
 end
 

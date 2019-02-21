@@ -53,10 +53,10 @@ public class SGeometricalOptics {
 			double n = n1 / n2;
 			double temp = Math.sqrt(1 - Math.pow(n, 2) * (1 - Math.pow(v.multiply(-1).dot(N.normalize()), 2)));
 			SVector3d t = v.normalize().multiply(n)
-					.add(N.normalize().multiply((v.normalize().multiply(-1).dot(N.normalize())) - temp));
+					.add(N.multiply((v.multiply(-1).normalize().dot(N.normalize()) * n - temp)));
 			return t;
 		} else {
-			return null;
+			return reflexion(v,N);
 		}
 		// throw new SNoImplementationException("Cette méthode doit être implémentée
 		// dans le cadre d'un laboratoire.");

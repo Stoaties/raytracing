@@ -3,9 +3,9 @@
 */
 
 camera
-position	[15.0, 15.0, 10.0]
+position	[5.0, 5.0, 0.0]
 look_at		[0.0, 0.0, 0.0]
-up		[-0.30151134457776363, -0.30151134457776363, 0.9045340337332909]
+up		[-0.7071067811865476, 0.7071067811865476, 0.0]
 angle			60.0 degrees
 near_clipping_plane	0.1
 far_clipping_plane	100.0
@@ -14,7 +14,7 @@ end
 viewport
 width		500 pixels
 height		500 pixels
-image_file_name	diamant.agp
+image_file_name	teapot
 end
 
 raytracer
@@ -22,8 +22,8 @@ task			1
 sampling		1
 recursive_level		1
 reflexion_algorithm	blinn
-pixel_coordinate	top_left
-space			linear
+pixel_coordinate	random
+space			voxel
 color_normalization	clamp_channel
 end
 
@@ -31,104 +31,21 @@ end
    Modèles de la scène
 */
 
+model
+file		teapot.obj
+scale		[1.0, 1.0, 1.0]
+rotation	[0.0, 0.0, 0.0]
+translation	[0.0, 0.0, 0.0]
+uv_format	default
+end	#end model
+
 /*
    Primitives de la scène
 */
 
-primitive
-material_name	origine
-sphere
-position	[0.0, 0.0, 0.0]
-ray		0.5
-end
-
-end	#end primitive
-
-primitive
-material_name	cylindre_x
-tube
-position		[0.0, 0.0, 0.0]
-position		[10.0, 0.0, 0.0]
-ray		0.3
-end
-
-end	#end primitive
-
-primitive
-material_name	cylindre_y
-tube
-position		[0.0, 0.0, 0.0]
-position		[0.0, 10.0, 0.0]
-ray		0.3
-end
-
-end	#end primitive
-
-primitive
-material_name	cylindre_z
-tube
-position		[0.0, 0.0, 0.0]
-position		[0.0, 0.0, 10.0]
-ray		0.3
-end
-
-end	#end primitive
-
 /*
    Matériaux de la scène
 */
-
-material
-name	origine
-color	[ 1.0, 1.0, 1.0, 1.0 ]
-ka	0.3
-kd	0.5
-ks	0.4
-p	0.0
-kr	0.0
-kt	0.0
-n	1.0
-shininess	20.0
-end	#end material
-
-material
-name	cylindre_x
-color	[ 0.8, 0.0, 0.0, 1.0 ]
-ka	0.3
-kd	0.5
-ks	0.4
-p	0.0
-kr	0.0
-kt	0.0
-n	1.0
-shininess	20.0
-end	#end material
-
-material
-name	cylindre_y
-color	[ 0.0, 0.8, 0.0, 1.0 ]
-ka	0.3
-kd	0.5
-ks	0.4
-p	0.0
-kr	0.0
-kt	0.0
-n	1.0
-shininess	20.0
-end	#end material
-
-material
-name	cylindre_z
-color	[ 0.0, 0.0, 0.8, 1.0 ]
-ka	0.3
-kd	0.5
-ks	0.4
-p	0.0
-kr	0.0
-kt	0.0
-n	1.0
-shininess	20.0
-end	#end material
 
 /*
    Sources de lumière de la scène
@@ -138,8 +55,17 @@ ambient_light
 color			[ 1.0, 1.0, 1.0, 1.0 ]
 end
 
+point_light
+color			[ 1.0, 1.0, 1.0, 1.0 ]
+position		[0.0, 5.0, 0.0]
+amplification	1.0
+constant_attenuator	1.0
+linear_attenuator	0.0
+quadratic_attenuator	0.05
+end
+
 directional_light
-color			[ 1.0, 1.0, 0.0, 1.0 ]
+color			[ 1.0, 1.0, 1.0, 1.0 ]
 orientation		[-0.5773502691896258, -0.5773502691896258, -0.5773502691896258]
 end
 

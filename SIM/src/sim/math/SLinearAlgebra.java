@@ -39,7 +39,11 @@ public class SLinearAlgebra {
    */
   public static SVector3d planNormal(SVector3d r0, SVector3d r1, SVector3d r2) 
   {
-    throw new SNoImplementationException("La méthode n'a pas été implémentée.");
+    
+	  SVector3d temp = r1.substract(r0);
+	  SVector3d temp1 = r2.substract(r0);
+	  return temp.cross(temp1);
+	  //throw new SNoImplementationException("La méthode n'a pas été implémentée.");
   }
   
   /**
