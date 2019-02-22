@@ -1,0 +1,54 @@
+camera
+position	[5.0, 2.0, 3.0]
+look_at		[0.0, 2.0, 0.0]
+up			[0.0, 1.0, 0.0]
+angle			60.0 degrees
+near_clipping_plane	0.1
+far_clipping_plane	1000.0
+end
+
+viewport
+width		500 pixels
+height		500 pixels
+image_file_name	deer
+end
+
+Raytracer
+task				1
+sampling			1
+recursive_level		1
+reflexion_algorithm	BLINN
+pixel_coordinate	center
+space				voxel
+color_normalization	division_factor
+end
+
+
+model
+file	deer.obj
+translation		0.0	0.0	0.0
+rotation		0.0	0.0	0.0
+scale			1.0	1.0	1.0
+uv_format		origin_uv_top_left
+end
+
+
+**********************************
+**	Lumière blanche		**
+**********************************
+lumiere_ambiante
+color 	0.3	0.3	0.3
+end
+
+**********************************
+**	Lumière blanche		**
+**********************************
+lumiere_directionnelle
+color	1.0	1.0	1.0
+orientation   1.0	-2.0	1.0
+end
+
+lumiere_directionnelle
+color	1.0	1.0	1.0
+orientation   -1.0	-1.0	-1.0
+end
