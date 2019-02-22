@@ -3,18 +3,18 @@
 */
 
 camera
-position	[5.0, 5.0, 0.0]
+position	[10.0, 10.0, 8.0]
 look_at		[0.0, 0.0, 0.0]
-up		[-0.7071067811865476, 0.7071067811865476, 0.0]
+up		[-0.48059153006799527, 0.7881701093115123, -0.38447322405439627]
 angle			60.0 degrees
 near_clipping_plane	0.1
-far_clipping_plane	100.0
+far_clipping_plane	1000.0
 end
 
 viewport
 width		500 pixels
 height		500 pixels
-image_file_name	teapot
+image_file_name	teapot_multiple
 end
 
 raytracer
@@ -22,7 +22,7 @@ task			1
 sampling		1
 recursive_level		1
 reflexion_algorithm	blinn
-pixel_coordinate	random
+pixel_coordinate	top_left
 space			voxel
 color_normalization	clamp_channel
 end
@@ -36,6 +36,38 @@ file		teapot.obj
 scale		[1.0, 1.0, 1.0]
 rotation	[0.0, 0.0, 0.0]
 translation	[0.0, 0.0, 0.0]
+uv_format	default
+end	#end model
+
+model
+file		teapot.obj
+scale		[1.0, 1.0, 1.0]
+rotation	[0.0, 0.0, 0.0]
+translation	[0.0, 0.0, 5.0]
+uv_format	default
+end	#end model
+
+model
+file		teapot.obj
+scale		[0.5, 0.5, 0.5]
+rotation	[0.0, 90.0, 0.0]
+translation	[5.0, 0.0, 0.0]
+uv_format	default
+end	#end model
+
+model
+file		teapot.obj
+scale		[0.5, 1.0, 0.5]
+rotation	[180.0, 0.0, 0.0]
+translation	[-5.0, 5.0, 0.0]
+uv_format	default
+end	#end model
+
+model
+file		teapot.obj
+scale		[1.5, 1.5, 1.5]
+rotation	[90.0, 90.0, 90.0]
+translation	[0.0, 0.0, -8.0]
 uv_format	default
 end	#end model
 
@@ -65,7 +97,7 @@ quadratic_attenuator	0.05
 end
 
 directional_light
-color			[ 1.0, 1.0, 1.0, 1.0 ]
+color			[ 0.5, 0.5, 0.5, 1.0 ]
 orientation		[-0.5773502691896258, -0.5773502691896258, -0.5773502691896258]
 end
 

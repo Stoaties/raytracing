@@ -118,7 +118,15 @@ public class SLinearAlgebra {
    */
   public static double[] triangleBarycentricCoordinates(SVector3d P0, SVector3d P1, SVector3d P2, SVector3d r)
   {
-    throw new SNoImplementationException("La méthode n'a pas été implémentée.");
+	  SVector3d w = r.substract(P0);
+	  SVector3d s1 = P1.substract(P0);
+	  SVector3d s2 = P2.substract(P0);
+	  
+	  double[] res = new double[2];
+	  res[0] = (w.dot(s1)*s2.dot(s2) - w.dot(s2)*s1.dot(s2)) / (s1.dot(s1)*s2.dot(s2) - Math.pow(s1.dot(s2), 2));
+	  res[1] = (w.dot(s2)*s1.dot(s1) - w.dot(s1)*s1.dot(s2)) / (s1.dot(s1)*s2.dot(s2) - Math.pow(s1.dot(s2), 2));
+	  return res;
+	  //throw new SNoImplementationException("La méthode n'a pas été implémentée.");
   }
   
   /**
@@ -156,7 +164,12 @@ public class SLinearAlgebra {
     if(b_coord.length != 2)
       throw new SRuntimeException("Erreur SLinearAlgebra 002 : Le tableau de coordonnée barycentrique d'un triangle contient " + b_coord.length + " élément ce qui n'est pas exactement égal à 2.");
     
-    throw new SNoImplementationException("La méthode n'a pas été implémentée.");
+    if(b_coord[0] >= 0 && b_coord[1] >= 0 && (b_coord[0] + b_coord[1]) <= 1) {
+    	return true;
+    }
+    return false;
+    
+    //throw new SNoImplementationException("La méthode n'a pas été implémentée.");
   }
   
   /**
